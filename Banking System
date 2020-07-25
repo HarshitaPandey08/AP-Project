@@ -1,0 +1,23 @@
+include <stdio.h>
+ 
+int main(void) {
+	int a,c=0;
+	float b;
+	scanf("%d%f",&a,&b);
+	if(a%5==0 && a<b)
+	{
+	    b=b-(a+0.5);
+	    c++;
+	}
+	else
+	{
+	    printf("%.2f",b);
+	}
+	if(c!=0)
+	{
+	    printf("%.2f",b);
+	}
+	
+	return 0;
+}
+ 
