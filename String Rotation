@@ -1,0 +1,75 @@
+#include<stdio.h>
+#include<string.h>
+int anagram(char *s,char *temp,int l,int l2)
+{
+    int first[26]={0},second[26]={0},k,flag,j;
+    for(k=0;k<l2;k++)
+    {
+        first[temp[k]-97]++;
+        second[s[k]-97]++;
+        
+    }
+    for(j=0;j+l2-1<l;j++)
+    {
+        flag=0;
+        for(k=0;k<l2;k++)
+        {
+            int r=temp[k]-'a';
+            if(first[r]!=second[r])
+            {
+                flag =1;
+                break;
+            }
+        }
+        if(flag==0)
+        {
+            return 1;
+            
+        }
+        second[s[j]-97]--;
+        second[s[j+l2]-97]++;
+        
+    }
+    return 0;
+}
+    
+    
+ 
+int main()
+{
+    char s[31],temp[10],c;
+    scanf("%s",s);
+    int l,i=0,n,t;
+    l=strlen(s);
+    scanf("%d",&n);
+    while(n>0)
+    {
+        scanf("\n%c %d",&c,&t);
+        if(c=='L')
+        {
+            temp[i++]=s[t%l];
+        }
+        else if(c=='R')
+        {
+            temp[i++]=s[(l-t)%l];
+          
+            
+        }
+ 
+        n--;
+    }
+    temp[i]='\0';
+    int l2=strlen(temp);
+    if(anagram(s,temp,l,l2)==1)
+    {
+        printf("YES");
+            
+    }
+    else
+    {
+        printf("NO");
+    }
+    
+ 
+}
+ 
