@@ -1,0 +1,27 @@
+#include<stdio.h>
+int main()
+{
+    int n,a[1000],s=0,i,j,p=0;
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    for(i=0,j=1;i<n,j<n;i=i+2,j=j+2)
+    {
+        p=p+a[i];
+        s=s+a[j];
+    }
+    if(n%2!=0)
+    {
+        p=p+a[n-1];
+    }
+    if(s>p)
+    {
+        printf("%d",s);
+    }
+    else
+    {
+        printf("%d",p);
+    }
+}
