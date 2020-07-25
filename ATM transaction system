@@ -1,0 +1,101 @@
+#include<stdio.h>
+#include<conio.h>
+int total_amnt=1000;
+int a;
+void deposit()
+{
+    printf("enter amount to deposit\n");
+    scanf("%d",&a);
+    total_amnt=total_amnt+a;
+    printf("amount deposited\n");
+}
+void withdraw()
+{
+    printf("amount to be withdrawn\n");
+    scanf("%d",&a);
+    if(a<=total_amnt && a%100==0)
+    {
+        total_amnt=total_amnt-a;
+    }
+    else if(a%100!=0)
+    {
+        printf("enter amount in multiples of 100");
+    }
+    else
+    {
+        printf("insufficient balance\n");
+    }
+    
+    
+}
+void transfer()
+{
+    printf("enter the amont to trasfer");
+    scanf("%d",&a);
+    if(a<=total_amnt)
+    {
+        total_amnt=total_amnt-a;
+        printf("amount transferred");
+    }
+    else
+    {
+        printf("insufficient balance");
+    }
+    
+}
+void status()
+{
+    printf("your balance is\n");
+    printf("Rs%d",total_amnt);
+}
+int main()
+{
+    int c,attempts=3,n,pass=1234,v=0;
+    while(attempts>0)
+    {
+        printf("enter your pin\n");
+        scanf("%d",&n);
+        if(n==1234)
+        {
+            v++;
+            break;
+        }
+        else
+        {
+            printf("enter a valid choice\n");
+            attempts--;
+            
+            if(attempts==0)
+            {
+                printf("your account is blocked");
+            }
+            
+        }
+    }
+    
+    if(v==1){
+    while(1)
+    {
+        printf("\n1.deposit\n2.withdraw\n3.transfer amount\n4.display status\n5.exit\n");
+        printf("enter your choice ");
+        scanf("%d",&c);
+ 
+        switch(c)
+        {
+            case 1:deposit();
+            break;
+            case 2:withdraw();
+            break;
+            case 3:transfer();
+            break;
+            case 4:status();
+            break;
+            case 5:printf("exit\n");
+            return 0;
+            break;
+            default:("\nenter a valid option\n");
+        }
+    }
+    }
+    return 0;
+}
